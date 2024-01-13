@@ -26,7 +26,7 @@ _Vibration Toggle + intensity control, controllable in Harlowe!
 -For Full instructions and Learn how to make full, immersive games in Twine Harlowe (with dynamic audio/video!): https://www.udemy.com/share/10acgY/
 
 
-**COMPATIBLILTY**
+**COMPATIBILITY**
 
 95% of all the gamepads and browsers are supported!
 Before starting, test the correct functionality of your gamepad with this: https://hardwaretester.com/gamepad

@@ -1,0 +1,90 @@
+ // SPRING_GAMEPAD_LIBRARY_**_MADE_BY_EYEVENEAR_FOR THE_TWINE_COMMUNITY**
+
+const buttonStates = [];
+
+function updateGamepadInput() {
+    const gamepads = navigator.getGamepads();
+    if (gamepads[0]) {
+        let gamepad = gamepads[0];
+
+        
+        gamepad.buttons.forEach((button, index) => {
+        
+            if (button.pressed && !buttonStates[index]) {
+                buttonStates[index] = true;
+               
+              // DOUBLE FOR EACH BIND
+              if (index === 0) {
+                    $("tw-hook[name=jump] tw-link").click();
+                } //THIS BIND ENDS HERE
+
+              // DOUBLE FOR EACH BIND
+              if (index === 1) {
+                    $("tw-hook[name=jump] tw-link").click();
+                } //THIS BIND ENDS HERE
+              
+            }
+            // Button up events
+            if (!button.pressed && buttonStates[index]) {
+                buttonStates[index] = false;
+                
+              // DOUBLE FOR EACH BIND
+              if (index === 0) {
+                    $("tw-hook[name=jumprelease] tw-link").click();
+                } //THIS BIND ENDS HERE
+              
+              // DOUBLE FOR EACH BIND
+              if (index === 1) {
+                    $("tw-hook[name=jumprelease] tw-link").click();
+                } //THIS BIND ENDS HERE
+              
+            }
+        });
+
+        State.variables.axisX = Number(gamepad.axes[0].toFixed(2)); // X axis of the left analog
+        State.variables.axisY = Number(gamepad.axes[1].toFixed(2)); // Y axis of the left analog
+        State.variables.axisX2 = Number(gamepad.axes[2].toFixed(2)); // X axis of the right analog
+        State.variables.axisY2 = Number(gamepad.axes[3].toFixed(2)); // Y axis of the right analog
+    }
+}
+
+State.variables.toggle = 0; 
+State.variables.weakMagnitude = 0.5; 
+State.variables.strongMagnitude = 1.0;
+
+function triggerVibration() {
+    const gamepads = navigator.getGamepads();
+    if (gamepads[0] && gamepads[0].vibrationActuator) {
+        gamepads[0].vibrationActuator.playEffect("dual-rumble", {
+            startDelay: 0,
+            duration: 200,
+            weakMagnitude: State.variables.weakMagnitude,
+            strongMagnitude: State.variables.strongMagnitude
+        });
+    }
+}
+
+function stopVibration() {
+    const gamepads = navigator.getGamepads();
+    if (gamepads[0] && gamepads[0].vibrationActuator) {
+        gamepads[0].vibrationActuator.playEffect("dual-rumble", {
+            startDelay: 0,
+            duration: 0,
+            weakMagnitude: 0,
+            strongMagnitude: 0
+        });
+    }
+}
+
+function checkToggleForVibration() {
+    if (State.variables.toggle === 1) {
+        triggerVibration();
+    } else {
+        stopVibration();
+    }
+}
+
+// Gamepad input's check frequency
+setInterval(updateGamepadInput, 50);
+// Vibration toggle's check frequency
+setInterval(checkToggleForVibration, 50);

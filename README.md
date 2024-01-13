@@ -21,4 +21,4 @@ _Vibration Toggle + intensity control, controllable in Harlowe!
 <br>
 -For Basic instructions on how to use it, check the comments integrated in the Javascript code
 <br>
--For Full instructions and Learn how to make full, immersive games in Twine (with audio/video): https://www.udemy.com/share/10acgY/
+-For Full instructions and Learn how to make full, immersive games in Twine Harlowe (with dynamic audio/video!): https://www.udemy.com/share/10acgY/

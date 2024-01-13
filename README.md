@@ -1,3 +1,5 @@
+![thumb2](https://github.com/eyevenear/twine-2-gamepad/assets/114662975/bc4da8cc-d571-4c5f-959f-cbadfdf6c47c)
+
 To those who knew that Twine 1 had gamepad support have been desiring to see it in Twine 2 for years...
 
 well, the wait is over.

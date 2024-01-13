@@ -22,3 +22,12 @@ _Vibration Toggle + intensity control, controllable in Harlowe!
 -For Basic instructions on how to use it, check the comments integrated in the Javascript code
 <br>
 -For Full instructions and Learn how to make full, immersive games in Twine Harlowe (with dynamic audio/video!): https://www.udemy.com/share/10acgY/
+
+
+**COMPATIBLILTY**
+
+95% of all the gamepads and browsers are supported!
+Before starting, test the correct functionality of your gamepad with this: https://hardwaretester.com/gamepad
+Some browsers may have additional protections that may break the functionality of this partially or totally,
+Brave works perfectly (Jan 2024),
+some browsers may require a first input to make the browser identify the controller.

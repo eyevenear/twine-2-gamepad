@@ -1,52 +1,53 @@
- // SPRING_GAMEPAD_LIBRARY_**_MADE_BY_EYEVENEAR_FOR THE_TWINE_COMMUNITY**
-
+//SPRING_FOR_TWINE2_HARLOWE**MADE_BY_EYEVENEAR_FOR EVERYONE**
 const buttonStates = [];
+
+State.variables.triggerLeft = 0;  
+State.variables.triggerRight = 0; 
 
 function updateGamepadInput() {
     const gamepads = navigator.getGamepads();
     if (gamepads[0]) {
         let gamepad = gamepads[0];
 
-        
+      //button down events
         gamepad.buttons.forEach((button, index) => {
-        
             if (button.pressed && !buttonStates[index]) {
                 buttonStates[index] = true;
                
-              // DOUBLE FOR EACH BIND
-              if (index === 0) {
+                // DOUBLE FOR EACH BIND (change index and hook name)
+                if (index === 0) {
                     $("tw-hook[name=jump] tw-link").click();
-                } //THIS BIND ENDS HERE
+                } // THIS BIND ENDS HERE
 
-              // DOUBLE FOR EACH BIND
-              if (index === 1) {
-                    $("tw-hook[name=jump] tw-link").click();
-                } //THIS BIND ENDS HERE
-              
+                
             }
-            // Button up events
+
+            // button up events
             if (!button.pressed && buttonStates[index]) {
                 buttonStates[index] = false;
                 
-              // DOUBLE FOR EACH BIND
-              if (index === 0) {
+                // DOUBLE FOR EACH BIND (change index and hook name)
+                if (index === 0) {
                     $("tw-hook[name=jumprelease] tw-link").click();
-                } //THIS BIND ENDS HERE
-              
-              // DOUBLE FOR EACH BIND
-              if (index === 1) {
-                    $("tw-hook[name=jumprelease] tw-link").click();
-                } //THIS BIND ENDS HERE
+                } // THIS BIND ENDS HERE
               
             }
         });
+
+        State.variables.triggerLeft = Number(gamepad.buttons[6]?.value.toFixed(2) || 0);
+        State.variables.triggerRight = Number(gamepad.buttons[7]?.value.toFixed(2) || 0);
 
         State.variables.axisX = Number(gamepad.axes[0].toFixed(2)); // X axis of the left analog
         State.variables.axisY = Number(gamepad.axes[1].toFixed(2)); // Y axis of the left analog
         State.variables.axisX2 = Number(gamepad.axes[2].toFixed(2)); // X axis of the right analog
         State.variables.axisY2 = Number(gamepad.axes[3].toFixed(2)); // Y axis of the right analog
     }
+
+    requestAnimationFrame(updateGamepadInput);
 }
+
+
+updateGamepadInput();
 
 State.variables.toggle = 0; 
 State.variables.weakMagnitude = 0.5; 
@@ -84,7 +85,5 @@ function checkToggleForVibration() {
     }
 }
 
-// Gamepad input's check frequency
-setInterval(updateGamepadInput, 50);
-// Vibration toggle's check frequency
+// Vibration toggle's check frequency in millisecond (lower = more reactive = heavier)
 setInterval(checkToggleForVibration, 50);

@@ -10,7 +10,7 @@ Features:
 
 _Button up/Button down events, controllable in Harlowe!
 
-_Analog sticks X Y values, controllable in Harlowe!
+_Analog sticks X Y values + Analog Triggers, controllable in Harlowe!
 
 _Vibration Toggle + intensity control, controllable in Harlowe!
 

@@ -18,5 +18,7 @@ _Vibration Toggle + intensity control, controllable in Harlowe!
 **INSTALLATION:**
 
 -Copy and Paste the content of SPRING.txt into the Javascript Section of your project
+<br>
 -For Basic instructions on how to use it, check the comments integrated in the Javascript code
+<br>
 -For Full instructions and Learn how to make full, immersive games in Twine (with audio/video): https://www.udemy.com/share/10acgY/
